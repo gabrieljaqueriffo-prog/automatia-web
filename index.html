@@ -94,6 +94,18 @@
   .hero{
     padding:120px 0 100px;
     border-bottom:1px solid var(--line);
+    position:relative;
+    overflow:hidden;
+  }
+  .hero .wrap{ position:relative; z-index:1; }
+  .hero-watermark{
+    position:absolute;
+    top:-160px; right:-160px;
+    width:clamp(520px, 55vw, 920px);
+    opacity:0.06;
+    z-index:0;
+    pointer-events:none;
+    user-select:none;
   }
   .hero-kicker{
     display:flex; align-items:center; gap:14px;
@@ -385,6 +397,7 @@
     .wrap{ padding:0 24px; }
     .nav-index{ display:none; }
     .hero{ padding:80px 0 60px; }
+    .hero-watermark{ width:70vw; top:-70px; right:-90px; opacity:0.05; }
     .hero-split{ grid-template-columns:1fr; gap:32px; }
     .hero-stats{ grid-template-columns:1fr; margin-top:56px; }
     .hero-stat{ padding:20px 0; border-bottom:1px solid var(--line); }
@@ -427,6 +440,7 @@
 </nav>
 
 <section class="hero">
+  <img class="hero-watermark" src="isotipo-automatIA-verde-Gigante.png" alt="" aria-hidden="true">
   <div class="wrap">
     <div class="hero-kicker"><span class="dot"></span>Diseño y estrategia con corazón, entre Chile y Venezuela</div>
     <h1>TU MARCA<br>MERECE<br>QUE LA VEAN.</h1>

@@ -101,9 +101,9 @@
   .hero .wrap{ position:relative; z-index:1; }
   .hero-watermark{
     position:absolute;
-    top:-160px; right:-160px;
-    width:clamp(520px, 55vw, 920px);
-    opacity:0.06;
+    bottom:32px; right:32px;
+    width:clamp(90px, 9vw, 150px);
+    opacity:0.16;
     z-index:0;
     pointer-events:none;
     user-select:none;
@@ -138,12 +138,14 @@
   .hero-scrim{
     position:absolute; inset:0;
     z-index:0;
-    background:linear-gradient(90deg,
-      rgba(10,10,10,0.95) 0%,
-      rgba(10,10,10,0.88) 32%,
-      rgba(10,10,10,0.6) 55%,
-      rgba(10,10,10,0.22) 78%,
-      rgba(10,10,10,0.05) 100%);
+    background:
+      radial-gradient(ellipse 780px 460px at 20% 32%, rgba(5,5,5,0.55) 0%, rgba(5,5,5,0) 72%),
+      linear-gradient(90deg,
+        rgba(10,10,10,0.95) 0%,
+        rgba(10,10,10,0.88) 32%,
+        rgba(10,10,10,0.6) 55%,
+        rgba(10,10,10,0.22) 78%,
+        rgba(10,10,10,0.05) 100%);
     pointer-events:none;
   }
   .hero-copy-primary{
@@ -472,6 +474,7 @@
     <img src="images/hero/automatia-hero.webp" width="1672" height="941" alt="Sistema visual y ecosistema digital de automatIA" fetchpriority="high" decoding="async">
   </div>
   <div class="hero-scrim"></div>
+  <img class="hero-watermark" src="isotipo-automatIA-verde-Gigante.png" alt="" aria-hidden="true">
   <div class="wrap">
     <div class="hero-layout">
       <div class="hero-kicker"><span class="dot"></span>Diseño y estrategia con corazón, entre Chile y Venezuela</div>

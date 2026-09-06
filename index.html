@@ -125,47 +125,38 @@
     font-size:clamp(64px, 10.5vw, 168px);
     color:var(--bone);
   }
-  .hero-layout{
-    display:grid;
-    grid-template-columns:1fr minmax(440px, 54%);
-    grid-template-areas:
-      "kicker kicker"
-      "h1     h1"
-      "p1     visual"
-      "p2     visual";
-    column-gap:56px;
-    align-items:start;
+  .hero-bg{
+    position:absolute; inset:0;
+    z-index:0;
   }
-  .hero-layout .hero-kicker{ grid-area:kicker; }
-  .hero-layout h1{ grid-area:h1; }
+  .hero-bg img{
+    width:100%; height:100%;
+    object-fit:cover;
+    object-position:64% 42%;
+    display:block;
+  }
+  .hero-scrim{
+    position:absolute; inset:0;
+    z-index:0;
+    background:linear-gradient(90deg,
+      rgba(10,10,10,0.95) 0%,
+      rgba(10,10,10,0.88) 32%,
+      rgba(10,10,10,0.6) 55%,
+      rgba(10,10,10,0.22) 78%,
+      rgba(10,10,10,0.05) 100%);
+    pointer-events:none;
+  }
   .hero-copy-primary{
-    grid-area:p1;
     font-size:19px;
     color:#C6C6BE;
     max-width:60ch;
     margin-top:56px;
   }
-  .hero-copy-secondary{ grid-area:p2; margin-top:18px; }
+  .hero-copy-secondary{ margin-top:18px; }
   .hero-copy-secondary p{
     font-size:19px;
     color:#C6C6BE;
     max-width:60ch;
-  }
-  .hero-visual{
-    grid-area:visual;
-    position:relative;
-    overflow:hidden;
-    aspect-ratio:16/9;
-    margin-top:64px;
-    width:calc(100% + var(--wrap-inset));
-    mask-image:linear-gradient(to right, transparent 0%, black 16%);
-    -webkit-mask-image:linear-gradient(to right, transparent 0%, black 16%);
-  }
-  .hero-visual img{
-    width:100%; height:100%;
-    object-fit:cover;
-    object-position:60% 46%;
-    display:block;
   }
   .hero-cta-block{ padding-top:22px; }
   .btn-primary{
@@ -427,26 +418,14 @@
     .wrap{ padding:0 24px; }
     .nav-index{ display:none; }
     .hero{ padding:80px 0 60px; }
-    .hero-watermark{ width:70vw; top:-70px; right:-90px; opacity:0.05; }
-    .hero-layout{
-      grid-template-columns:1fr;
-      grid-template-areas:
-        "kicker"
-        "h1"
-        "p1"
-        "visual"
-        "p2";
-      column-gap:0;
+    .hero-bg img{ object-position:70% 40%; }
+    .hero-scrim{
+      background:linear-gradient(180deg,
+        rgba(10,10,10,0.92) 0%,
+        rgba(10,10,10,0.88) 45%,
+        rgba(10,10,10,0.86) 100%);
     }
     .hero-copy-primary{ margin-top:32px; }
-    .hero-visual{
-      margin-top:32px;
-      width:100%;
-      aspect-ratio:16/10;
-      mask-image:none;
-      -webkit-mask-image:none;
-    }
-    .hero-visual img{ object-position:62% 42%; }
     .hero-copy-secondary{ margin-top:32px; }
     .hero-stats{ grid-template-columns:1fr; margin-top:56px; }
     .hero-stat{ padding:20px 0; border-bottom:1px solid var(--line); }
@@ -489,15 +468,15 @@
 </nav>
 
 <section class="hero">
-  <img class="hero-watermark" src="isotipo-automatIA-verde-Gigante.png" alt="" aria-hidden="true">
+  <div class="hero-bg">
+    <img src="images/hero/automatia-hero.webp" width="1672" height="941" alt="Sistema visual y ecosistema digital de automatIA" fetchpriority="high" decoding="async">
+  </div>
+  <div class="hero-scrim"></div>
   <div class="wrap">
     <div class="hero-layout">
       <div class="hero-kicker"><span class="dot"></span>Diseño y estrategia con corazón, entre Chile y Venezuela</div>
       <h1>TU MARCA<br>MERECE<br>QUE LA VEAN.</h1>
       <p class="hero-copy-primary">Hay negocios que llevan años trabajando duro y siguen siendo invisibles. Les falta alguien que los ayude a brillar. Nosotros hacemos eso.</p>
-      <div class="hero-visual">
-        <img src="images/hero/automatia-hero.webp" width="1672" height="941" alt="Sistema visual y ecosistema digital de automatIA" fetchpriority="high" decoding="async">
-      </div>
       <div class="hero-copy-secondary">
         <p>Creemos que cada marca, sin importar su tamaño, merece sentirse orgullosa de lo que es y ser reconocida por ello.</p>
         <div class="hero-cta-block">
